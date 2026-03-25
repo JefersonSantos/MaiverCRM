@@ -100,11 +100,25 @@ const Dashboard = () => {
   )
 }
 
+import Auth from './components/Auth'
+
 const App = () => {
+  const { session, loading } = useSupabase()
+
+  if (loading) {
+    return (
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--background)' }}>
+        <Loader2 className="animate-spin" size={48} style={{ color: 'var(--primary)' }} />
+      </div>
+    )
+  }
+
+  if (!session) {
+    return <Auth />
+  }
+
   return (
-    <SupabaseProvider>
-      <BrowserRouter>
-        <div className="app-container">
+    <div className="app-container">
         <aside className="sidebar">
           <div className="logo">MaiverCRM</div>
           
@@ -147,10 +161,15 @@ const App = () => {
             <Route path="/settings" element={<Settings />} />
           </Routes>
         </main>
-      </div>
-      </BrowserRouter>
-    </SupabaseProvider>
   )
 }
 
-export default App
+const Root = () => (
+  <SupabaseProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </SupabaseProvider>
+)
+
+export default Root
