@@ -6,7 +6,8 @@ import CRM from './pages/CRM'
 import Workflows from './pages/Workflows'
 import Templates from './pages/Templates'
 import Products from './pages/Products'
-import Settings from './pages/Settings'
+import SettingsPage from './pages/Settings'
+import Auth from './components/Auth'
 
 // Placeholder components for other pages
 const Dashboard = () => {
@@ -100,7 +101,6 @@ const Dashboard = () => {
   )
 }
 
-import Auth from './components/Auth'
 
 const App = () => {
   const { session, loading } = useSupabase()
@@ -158,7 +158,7 @@ const App = () => {
             <Route path="/templates" element={<Templates />} />
             <Route path="/products" element={<Products />} />
             <Route path="/reports" element={<div className="main-content"><h1>Relatórios</h1></div>} />
-            <Route path="/settings" element={<Settings />} />
+            <Route path="/settings" element={<SettingsPage />} />
           </Routes>
         </main>
       </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Key, Globe, Shield, Smartphone } from 'lucide-react'
 import { useSupabase } from '../hooks/useSupabase'
 
-const Settings = () => {
+const SettingsPage = () => {
   const { profile } = useSupabase()
 
   return (
@@ -86,4 +86,4 @@ const Settings = () => {
   )
 }
 
-export default Settings
+export default SettingsPage
