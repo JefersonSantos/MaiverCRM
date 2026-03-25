@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import { LayoutDashboard, Users, GitMerge, FileText, Package, Settings as SettingsIcon, BarChart3 } from 'lucide-react'
-import { SupabaseProvider } from './hooks/useSupabase'
+import { SupabaseProvider, useSupabase } from './hooks/useSupabase'
 import CRM from './pages/CRM'
 import Workflows from './pages/Workflows'
 import Templates from './pages/Templates'
