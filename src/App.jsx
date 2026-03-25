@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
-import { LayoutDashboard, Users, GitMerge, FileText, Package, Settings, BarChart3 } from 'lucide-react'
+import { LayoutDashboard, Users, GitMerge, FileText, Package, Settings as SettingsIcon, BarChart3 } from 'lucide-react'
 import { SupabaseProvider } from './hooks/useSupabase'
 import CRM from './pages/CRM'
 import Workflows from './pages/Workflows'
@@ -131,7 +131,7 @@ const App = () => {
 
           <footer style={{ marginTop: 'auto' }}>
             <NavLink to="/settings" className="nav-item">
-              <Settings size={20} /> Configurações
+              <SettingsIcon size={20} /> Configurações
             </NavLink>
           </footer>
         </aside>
