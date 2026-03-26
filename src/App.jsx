@@ -15,7 +15,27 @@ import Products from './pages/Products'
 import SettingsPage from './pages/Settings'
 
 const App = () => {
-  const { session, loading } = useSupabase()
+  const { session, loading, supabase } = useSupabase()
+
+  // Env check
+  if (!supabase && !loading) {
+    return (
+      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'var(--background)', padding: '2rem', textAlign: 'center' }}>
+        <h1 style={{ color: '#f87171', marginBottom: '1rem' }}>Configuração Necessária</h1>
+        <p style={{ maxWidth: '600px', marginBottom: '2rem' }}>
+          O MaiverCRM não conseguiu se conectar ao Supabase porque as variáveis de ambiente <strong>VITE_SUPABASE_URL</strong> e <strong>VITE_SUPABASE_ANON_KEY</strong> estão faltando.
+        </p>
+        <div className="card" style={{ background: 'rgba(255, 255, 255, 0.05)', textAlign: 'left', fontSize: '0.875rem' }}>
+          <p><strong>Como resolver:</strong></p>
+          <ol style={{ marginLeft: '1.5rem', marginTop: '0.5rem' }}>
+            <li>No seu projeto local, crie um arquivo <code>.env</code> na raiz.</li>
+            <li>Adicione os dados do seu projeto Supabase.</li>
+            <li>Na Vercel, adicione esses campos em <strong>Settings &gt; Environment Variables</strong>.</li>
+          </ol>
+        </div>
+      </div>
+    )
+  }
 
   // Loading state
   if (loading) {
