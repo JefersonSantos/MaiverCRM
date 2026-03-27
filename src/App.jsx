@@ -1,3 +1,4 @@
+// Build trigger: 2026-03-27
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Loader2 } from 'lucide-react'
