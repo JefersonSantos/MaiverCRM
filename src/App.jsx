@@ -16,6 +16,7 @@ import Products from './pages/Products'
 import SettingsPage from './pages/Settings'
 
 const App = () => {
+  console.log('App: Rendering initialized...');
   const { session, loading, supabase } = useSupabase()
 
   // Env check
