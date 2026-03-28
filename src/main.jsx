@@ -1,9 +1,14 @@
-console.log('!!! PURE JS BOOT !!!');
-document.body.style.background = 'red';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+console.log('!!! REACT LOADED !!!');
+
 const root = document.getElementById('root');
 if (root) {
-  root.innerHTML = '<h1 style="color: white; font-size: 50px;">PURE JS SUCCESS</h1>';
+  ReactDOM.createRoot(root).render(
+    <h1 style={{ color: 'white', padding: '20px' }}>REACT MOUNT SUCCESS</h1>
+  );
+  console.log('!!! REACT RENDER CALLED !!!');
+} else {
+  console.error('!!! ROOT NOT FOUND !!!');
 }
-window.onload = () => {
-  console.log('!!! WINDOW LOADED !!!');
-};
