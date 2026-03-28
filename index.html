@@ -11,22 +11,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script>
-      window.onerror = function(msg, url, line, col, error) {
-        var root = document.getElementById('root');
-        if (root) {
-          root.innerHTML = '<div style="color: #f87171; padding: 20px; background: #1a1a1a; margin: 20px; border: 1px solid #f87171; border-radius: 8px;">' +
-            '<h2 style="margin: 0 0 10px 0;">Erro Crítico de Inicialização</h2>' +
-            '<p style="margin: 0;">' + msg + '</p>' +
-            '<p style="font-size: 12px; margin-top: 10px; opacity: 0.7;">' + url + ' (L' + line + ':C' + col + ')</p>' +
-            '</div>';
-        }
-        return false;
-      };
-      window.onunhandledrejection = function(event) {
-        console.error('Unhandled rejection:', event.reason);
-      };
-    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
