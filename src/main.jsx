@@ -1,17 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
 
-const SimpleApp = () => (
-  <div style={{ color: 'white', padding: '40px', background: 'rgba(255,255,255,0.1)' }}>
-    <h1>APP COMPONENT SUCCESS</h1>
-    <p>If you see this, the basic App structure is working on Vercel.</p>
-  </div>
-);
+console.log('!!! REAL APP IMPORTED !!!');
 
-console.log('!!! REACT + SIMPLE APP LOADED !!!');
-
-const root = document.getElementById('root');
-if (root) {
-  ReactDOM.createRoot(root).render(<SimpleApp />);
-  console.log('!!! RENDER SUCCESSFUL !!!');
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  try {
+    ReactDOM.createRoot(rootElement).render(<App />);
+    console.log('!!! REAL APP RENDER CALLED !!!');
+  } catch (err) {
+    console.error('!!! REAL APP RENDER FAILED !!!', err);
+    rootElement.innerHTML = `<h1 style="color: red;">RENDER ERROR: ${err.message}</h1>`;
+  }
 }
