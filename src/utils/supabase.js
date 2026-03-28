@@ -3,11 +3,13 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('ERRO: Variáveis de ambiente do Supabase não encontradas! Verifique o arquivo .env ou as configurações da Vercel.')
+const isUrlValid = supabaseUrl && (supabaseUrl.startsWith('http://') || supabaseUrl.startsWith('https://'))
+
+if (!isUrlValid) {
+  console.error('ERRO: VITE_SUPABASE_URL inválida ou mal formatada! Ela deve começar com http:// ou https://')
 }
 
-export const supabase = (supabaseUrl && supabaseAnonKey) 
+export const supabase = isUrlValid 
   ? createClient(supabaseUrl, supabaseAnonKey)
   : null
 
